@@ -1065,6 +1065,7 @@
   <p class="section-desc">Décrivez-nous votre événement et nous vous recontactons sous 24h avec une proposition personnalisée.</p>
 
   <form class="devis-form" onsubmit="handleDevis(event)">
+  <input type="hidden" name="_replyto" value="contact@leclatduchef.fr">
     <div class="form-group">
       <label class="form-label">Prénom *</label>
       <input type="text" name="prenom" class="form-input" placeholder="Jean" required>
@@ -1191,10 +1192,12 @@ async function handleDevis(e) {
       form.querySelector('.form-submit').style.display = 'none';
       form.reset();
     } else {
-      alert('Une erreur est survenue, veuillez réessayer.');
+      const json = await res.json();
+      console.log('Formspree error:', json);
+      alert('Erreur : ' + JSON.stringify(json));
     }
   } catch (_e) {
-    alert('Une erreur est survenue, veuillez réessayer.');
+    alert('Erreur réseau : ' + _e);
   }
 }
 
