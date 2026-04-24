@@ -1180,7 +1180,7 @@ async function handleDevis(e) {
   const data = new FormData(form);
 
   try {
-    const res = await fetch(form.action, {
+    const res = await fetch('https://formspree.io/f/xyklodrz', {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
@@ -1190,6 +1190,8 @@ async function handleDevis(e) {
       document.getElementById('form-success').style.display = 'block';
       form.querySelector('.form-submit').style.display = 'none';
       form.reset();
+    } else {
+      alert('Une erreur est survenue, veuillez réessayer.');
     }
   } catch (_e) {
     alert('Une erreur est survenue, veuillez réessayer.');
