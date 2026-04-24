@@ -1067,23 +1067,23 @@
   <form class="devis-form" onsubmit="handleDevis(event)">
     <div class="form-group">
       <label class="form-label">Prénom *</label>
-      <input type="text" class="form-input" placeholder="Jean" required>
+      <input type="text" name="prenom" class="form-input" placeholder="Jean" required>
     </div>
     <div class="form-group">
       <label class="form-label">Nom *</label>
-      <input type="text" class="form-input" placeholder="Dupont" required>
+      <input type="text" name="nom" class="form-input" placeholder="Dupont" required>
     </div>
     <div class="form-group">
       <label class="form-label">Email *</label>
-      <input type="email" class="form-input" placeholder="jean@email.com" required>
+      <input type="email" name="email" class="form-input" placeholder="jean@email.com" required>
     </div>
     <div class="form-group">
       <label class="form-label">Téléphone *</label>
-      <input type="tel" class="form-input" placeholder="06 00 00 00 00" required>
+      <input type="tel" name="telephone" class="form-input" placeholder="06 00 00 00 00" required>
     </div>
     <div class="form-group">
       <label class="form-label">Type de prestation *</label>
-      <select class="form-select" required>
+      <select name="prestation" class="form-select" required>
         <option value="">Sélectionnez</option>
         <option>Cocktail</option>
         <option>Buffet</option>
@@ -1095,19 +1095,19 @@
     </div>
     <div class="form-group">
       <label class="form-label">Nombre de convives *</label>
-      <input type="number" class="form-input" placeholder="Ex: 80" min="10" required>
+      <input type="number" name="convives" class="form-input" placeholder="Ex: 80" min="10" required>
     </div>
     <div class="form-group">
       <label class="form-label">Date de l'événement</label>
-      <input type="date" class="form-input">
+      <input type="date" name="evenement" class="form-input">
     </div>
     <div class="form-group">
       <label class="form-label">Lieu</label>
-      <input type="text" class="form-input" placeholder="Ville, adresse...">
+      <input type="text"  name="lieu" class="form-input" placeholder="Ville, adresse...">
     </div>
     <div class="form-group full">
       <label class="form-label">Décrivez votre événement</label>
-      <textarea class="form-textarea" placeholder="Type d'événement, ambiance souhaitée, contraintes alimentaires, budget approximatif..."></textarea>
+      <textarea name="message" class="form-textarea" placeholder="Type d'événement, ambiance souhaitée, contraintes alimentaires, budget approximatif..."></textarea>
     </div>
     <button type="submit" class="form-submit">Envoyer ma demande de devis</button>
     <div class="form-success" id="form-success">
