@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'Éclat du Chef — Traiteur événementiel en Île-de-France. Cocktails, buffets, repas assis, plateaux repas. Service sur mesure pour particuliers et entreprises.">
+<title>L'Éclat du Chef — Traiteur Événementiel Île-de-France</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --noir: #080808;
+    --blanc: #FFFFFF;
+    --or: #C8A951;
+    --or-dark: #A07A28;
+    --or-light: #E2C97E;
+    --or-pale: #FBF6EC;
+    --gris: #5C5C5C;
+    --gris-light: #F5F3EF;
+    --border: rgba(200,169,81,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #FFFFFF;
+    color: var(--noir);
+    overflow-x: hidden;
+  }
+
+  /* ── BARRE TOP ── */
+  .top-bar {
+    background: #080808;
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .top-bar a {
+    color: var(--or-light);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .top-bar a:hover { color: #C8A951; }
+  .top-bar-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--noir);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gris);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--noir); }
+  .nav-cta {
+    background: #C8A951;
+    color: var(--blanc) !important;
+    padding: 10px 24px !important;
+    border-radius: 2px;
+    letter-spacing: 0.1em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #B8935A !important; color: var(--blanc) !important; }
+  .hamburger { display: none; cursor: pointer; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: #080808; margin: 5px 0; transition: all 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: #080808;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 60% 40%, rgba(201,169,110,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(201,169,110,0.05) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-content {
+    position: relative;
+    padding: 120px 48px 80px;
+    max-width: 700px;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .eyebrow-line { width: 40px; height: 1px; background: #C8A951; }
+  .eyebrow-text {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #C8A951;
+    font-weight: 400;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--blanc);
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-title em { font-style: italic; color: #C8A951; }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-or {
+    background: #C8A951;
+    color: var(--noir);
+    border: none;
+    padding: 16px 36px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-or:hover { background: #E2C97E; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--blanc);
+    border: 1px solid rgba(250,250,247,0.25);
+    padding: 16px 36px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: #C8A951; color: #C8A951; }
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.42);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+  .scroll-line { width: 40px; height: 1px; background: rgba(250,250,247,0.2); }
+
+  /* ── CHIFFRES ── */
+  .stats-band {
+    background: #FBF6EC;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 48px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--noir);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num span { color: #C8A951; }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  /* ── ABOUT ── */
+  .about-section { padding: 120px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .about-image-placeholder {
+    aspect-ratio: 4/5;
+    background: #F5F3EF;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px dashed rgba(200,169,81,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .about-label-line { width: 30px; height: 1px; background: #C8A951; }
+  .about-label-text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C8A951; }
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--noir);
+    margin-bottom: 28px;
+  }
+  .about-title em { font-style: italic; color: #C8A951; }
+  .about-text { font-size: 15px; font-weight: 300; color: var(--gris); line-height: 1.9; margin-bottom: 20px; }
+  .about-values { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
+  .about-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .value-dot { width: 6px; height: 6px; border-radius: 50%; background: #C8A951; margin-top: 6px; flex-shrink: 0; }
+  .value-text { font-size: 14px; color: var(--noir); font-weight: 400; }
+  .value-sub { font-size: 12px; color: var(--gris); margin-top: 3px; font-weight: 300; }
+
+  /* ── PRESTATIONS ── */
+  .prestations-section { padding: 120px 48px; background: #080808; }
+  .section-header { text-align: center; margin-bottom: 72px; }
+  .section-label { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-label-line { width: 40px; height: 1px; background: #C8A951; }
+  .section-label-text { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #C8A951; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--blanc);
+  }
+  .section-title.dark { color: var(--noir); }
+  .section-title em { font-style: italic; color: #C8A951; }
+  .section-desc { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 560px; margin: 20px auto 0; line-height: 1.8; font-weight: 300; }
+  .section-desc.dark { color: var(--gris); }
+
+  .prestations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,169,81,0.1);
+    border: 1px solid rgba(200,169,81,0.1);
+  }
+  .presta-card {
+    background: #080808;
+    padding: 48px 36px;
+    transition: background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .presta-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: #C8A951;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .presta-card:hover { background: #141414; }
+  .presta-card:hover::before { transform: scaleX(1); }
+  .presta-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: rgba(200,169,81,0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+  .presta-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+  .presta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--blanc);
+    margin-bottom: 14px;
+  }
+  .presta-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; font-weight: 300; margin-bottom: 24px; }
+  .presta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C8A951;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .presta-link:hover { gap: 12px; }
+
+  /* ── POURQUOI NOUS ── */
+  .why-section { padding: 120px 48px; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .why-feature {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .why-feature:first-of-type { border-top: 1px solid var(--border); }
+  .feature-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #C8A951; flex-shrink: 0; width: 30px; }
+  .feature-title { font-size: 15px; font-weight: 500; color: var(--noir); margin-bottom: 6px; }
+  .feature-desc { font-size: 13px; color: var(--gris); line-height: 1.7; font-weight: 300; }
+  .why-right {
+    background: #080808;
+    padding: 56px 48px;
+    border-radius: 2px;
+    position: sticky;
+    top: 100px;
+  }
+  .why-right-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--blanc);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .why-right-title em { font-style: italic; color: #C8A951; }
+  .why-right-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 32px; font-weight: 300; }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(200,169,81,0.12);
+  }
+  .contact-item:last-of-type { border-bottom: none; margin-bottom: 0; }
+  .contact-icon { color: #C8A951; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .contact-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 3px; }
+  .contact-value { font-size: 14px; color: var(--blanc); font-weight: 300; }
+  .contact-value a { color: #C8A951; text-decoration: none; }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 100px 48px; background: #F5F3EF; }
+  .faq-grid { max-width: 820px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--noir);
+    text-align: left;
+    font-family: 'Jost', sans-serif;
+    gap: 20px;
+  }
+  .faq-plus {
+    width: 28px; height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #C8A951;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .faq-item.open .faq-plus { background: #C8A951; color: var(--noir); transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 14px;
+    color: var(--gris);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .faq-answer-inner { padding-bottom: 24px; }
+  .faq-item.open .faq-answer { max-height: 300px; }
+
+  /* ── GALERIE ── */
+  .galerie-section { padding: 120px 48px; }
+  .galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 8px;
+    margin-top: 64px;
+  }
+  .galerie-item {
+    background: #F5F3EF;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px dashed rgba(200,169,81,0.2);
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .galerie-item:hover { transform: scale(1.02); }
+  .galerie-item.large { grid-column: span 2; grid-row: span 2; }
+
+  /* ── DEVIS ── */
+  .devis-section { padding: 120px 48px; background: #080808; text-align: center; }
+  .devis-form {
+    max-width: 700px;
+    margin: 56px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .devis-form .full { grid-column: 1 / -1; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+  .form-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,169,81,0.22);
+    border-radius: 2px;
+    padding: 14px 16px;
+    color: var(--blanc);
+    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #C8A951;
+    background: rgba(255,255,255,0.07);
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.28); }
+  .form-select option { background: #1a1a1a; color: var(--blanc); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    grid-column: 1 / -1;
+    background: #C8A951;
+    color: var(--noir);
+    border: none;
+    padding: 18px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: #E2C97E; transform: translateY(-1px); }
+  .form-success {
+    display: none;
+    background: rgba(200,169,81,0.1);
+    border: 1px solid var(--or);
+    border-radius: 2px;
+    padding: 20px;
+    color: #C8A951;
+    font-size: 14px;
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer { background: #030303; padding: 72px 48px 40px; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 56px;
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--blanc);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; font-weight: 300; max-width: 260px; }
+  .footer-col h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #C8A951; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+  .footer-col ul li a:hover { color: var(--blanc); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.28); font-weight: 300; }
+  .footer-socials { display: flex; gap: 16px; }
+  .footer-socials a {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(200,169,81,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.42);
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-socials a:hover { border-color: #C8A951; color: #C8A951; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .prestations-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .galerie-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .galerie-item.large { grid-column: span 1; grid-row: span 1; }
+  }
+  @media (max-width: 768px) {
+    .top-bar { padding: 10px 20px; }
+    .top-bar-links { gap: 14px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .hero-content { padding: 100px 20px 60px; }
+    .stats-band { padding: 40px 20px; gap: 40px; }
+    .about-section { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
+    .prestations-section { padding: 80px 20px; }
+    .prestations-grid { grid-template-columns: 1fr; }
+    .why-section { padding: 80px 20px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-right { position: static; }
+    .faq-section { padding: 80px 20px; }
+    .galerie-section { padding: 80px 20px; }
+    .galerie-grid { grid-template-columns: 1fr 1fr; }
+    .devis-section { padding: 80px 20px; }
+    .devis-form { grid-template-columns: 1fr; }
+    .devis-form .full { grid-column: 1; }
+    footer { padding: 60px 20px 30px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-links">
+    <a href="tel:+33760482971">📞 07 60 48 29 71</a>
+    <a href="mailto:contact@leclatduchef.fr">✉ contact@leclatduchef.fr</a>
+    <a href="#">📍 Île-de-France</a>
+  </div>
+  <a href="#devis" style="color: #C8A951; font-weight: 500; letter-spacing: 0.1em;">Demander un devis →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    L'Éclat du Chef
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#prestations">Prestations</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#devis" class="nav-cta">Devis gratuit</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80');background-size:cover;background-position:center;opacity:0.10;"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Traiteur événementiel · Île-de-France</span>
+    </div>
+    <h1 class="hero-title">L'Éclat<br>du <em>Chef</em></h1>
+    <p class="hero-subtitle">L'excellence culinaire<br>à votre service</p>
+    <p class="hero-desc">
+      Cocktails raffinés, buffets généreux, repas d'exception — nous créons des expériences gastronomiques sur mesure pour vos événements privés et professionnels en Île-de-France.
+    </p>
+    <div class="hero-actions">
+      <a href="#devis" class="btn-or">Demander un devis</a>
+      <a href="#prestations" class="btn-outline">Nos prestations</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Découvrir
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">10<span>+</span></div>
+    <div class="stat-label">Années d'expérience</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">500<span>+</span></div>
+    <div class="stat-label">Événements réalisés</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">400<span>+</span></div>
+    <div class="stat-label">Convives max.</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100<span>%</span></div>
+    <div class="stat-label">Sur mesure</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-image-placeholder" style="border:none;background:none;">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Chef L'Éclat du Chef" style="width:100%;height:100%;object-fit:cover;border-radius:2px;">
+  </div>
+  <div class="about-text-content">
+    <div class="about-label">
+      <div class="about-label-line"></div>
+      <span class="about-label-text">Notre histoire</span>
+    </div>
+    <h2 class="about-title">Une passion,<br>un <em>savoir-faire</em></h2>
+    <p class="about-text">
+      L'Éclat du Chef est né d'une passion profonde pour la gastronomie française et l'art de recevoir. Chaque événement est pour nous l'occasion de sublimer vos moments avec des créations culinaires alliant tradition et modernité.
+    </p>
+    <p class="about-text">
+      Qu'il s'agisse d'un mariage intime, d'une réception d'entreprise ou d'un cocktail entre amis, nous mettons notre expertise au service de vos envies pour créer des instants inoubliables.
+    </p>
+    <div class="about-values">
+      <div class="about-value">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-text">Produits frais & de saison</div>
+          <div class="value-sub">Sélectionnés auprès de producteurs locaux franciliens</div>
+        </div>
+      </div>
+      <div class="about-value">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-text">Prestations 100% sur mesure</div>
+          <div class="value-sub">Chaque menu est conçu selon vos envies et votre budget</div>
+        </div>
+      </div>
+      <div class="about-value">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-text">Service clé en main</div>
+          <div class="value-sub">Livraison, installation, service et remballage inclus</div>
+        </div>
+      </div>
+      <div class="about-value">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-text">Adaptation à toutes les contraintes</div>
+          <div class="value-sub">Végétarien, sans gluten, halal — nous nous adaptons</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESTATIONS -->
+<section class="prestations-section" id="prestations">
+  <div class="section-header">
+    <div class="section-label" style="justify-content: center;">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Ce que nous proposons</span>
+      <div class="section-label-line"></div>
+    </div>
+    <h2 class="section-title">Nos <em>prestations</em></h2>
+    <p class="section-desc">De l'apéritif au dessert, nous orchestrons chaque moment de votre événement avec rigueur et créativité.</p>
+  </div>
+  <div class="prestations-grid">
+    <div class="presta-card">
+      <div class="presta-number">01</div>
+      <span class="presta-icon">🥂</span>
+      <h3 class="presta-title">Cocktail</h3>
+      <p class="presta-desc">Des pièces apéritives raffinées et créatives pour surprendre vos convives. Verrines, bouchées, mises en bouche d'exception.</p>
+      <a href="#devis" class="presta-link">Demander un devis →</a>
+    </div>
+    <div class="presta-card">
+      <div class="presta-number">02</div>
+      <span class="presta-icon">🍽️</span>
+      <h3 class="presta-title">Buffet</h3>
+      <p class="presta-desc">Un buffet généreux et varié, adapté à vos envies et votre budget. Chaud, froid, sucré, salé — tout est orchestré avec soin.</p>
+      <a href="#devis" class="presta-link">Demander un devis →</a>
+    </div>
+    <div class="presta-card">
+      <div class="presta-number">03</div>
+      <span class="presta-icon">🕯️</span>
+      <h3 class="presta-title">Repas assis</h3>
+      <p class="presta-desc">Un menu servi à table, alliant élégance et gastronomie pour vos soirées les plus précieuses. Mariage, anniversaire, gala.</p>
+      <a href="#devis" class="presta-link">Demander un devis →</a>
+    </div>
+    <div class="presta-card">
+      <div class="presta-number">04</div>
+      <span class="presta-icon">🥗</span>
+      <h3 class="presta-title">Plateaux repas</h3>
+      <p class="presta-desc">Des repas livrés en entreprise, équilibrés, pratiques et savoureux. Idéal pour vos réunions, séminaires et pauses déjeuner.</p>
+      <a href="#devis" class="presta-link">Demander un devis →</a>
+    </div>
+    <div class="presta-card">
+      <div class="presta-number">05</div>
+      <span class="presta-icon">🎊</span>
+      <h3 class="presta-title">Animations</h3>
+      <p class="presta-desc">Mariages, anniversaires, séminaires : une organisation traiteur clé en main avec personnel, matériel et décoration inclus.</p>
+      <a href="#devis" class="presta-link">Demander un devis →</a>
+    </div>
+    <div class="presta-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: rgba(200,169,81,0.06);">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: rgba(255,255,255,0.62); font-style: italic; margin-bottom: 24px; line-height: 1.4;">Chaque événement mérite une attention particulière</p>
+      <a href="#devis" class="btn-or">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section class="why-section">
+  <div class="why-grid">
+    <div class="why-left">
+      <div class="about-label" style="margin-bottom: 20px;">
+        <div class="about-label-line"></div>
+        <span class="about-label-text">Pourquoi nous choisir</span>
+      </div>
+      <h2 class="about-title" style="margin-bottom: 48px;">Notre <em>engagement</em><br>envers vous</h2>
+      <div class="why-feature">
+        <div class="feature-num">01</div>
+        <div>
+          <div class="feature-title">Expertise événementielle</div>
+          <div class="feature-desc">Plus de 10 ans d'expérience dans l'organisation traiteur en Île-de-France, pour tous types d'événements de 10 à 400 personnes.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="feature-num">02</div>
+        <div>
+          <div class="feature-title">Produits frais & locaux</div>
+          <div class="feature-desc">Nous travaillons en priorité avec des producteurs franciliens pour vous garantir fraîcheur et qualité à chaque prestation.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="feature-num">03</div>
+        <div>
+          <div class="feature-title">Service complet clé en main</div>
+          <div class="feature-desc">Livraison, installation, service et remballage. Nous gérons tout pour que vous profitiez pleinement de votre événement.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="feature-num">04</div>
+        <div>
+          <div class="feature-title">Réactivité & disponibilité</div>
+          <div class="feature-desc">Notre équipe répond à vos demandes sous 24h et vous accompagne de la conception du menu jusqu'au dernier couvert.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="feature-num">05</div>
+        <div>
+          <div class="feature-title">Toute l'Île-de-France</div>
+          <div class="feature-desc">Paris et ses environs, nous nous déplaçons dans toute la région quel que soit le lieu de votre événement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-right">
+      <div class="why-right-title">Contactez-<br>nous <em>directement</em></div>
+      <div class="why-right-sub">Notre équipe est disponible du lundi au samedi</div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Téléphone</div>
+          <div class="contact-value"><a href="tel:+33760482971">07 60 48 29 71</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:contact@leclatduchef.fr">contact@leclatduchef.fr</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Zone d'intervention</div>
+          <div class="contact-value">Toute l'Île-de-France</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Délai de réservation</div>
+          <div class="contact-value">2 à 4 semaines à l'avance</div>
+        </div>
+      </div>
+      <a href="#devis" class="btn-or" style="display: block; text-align: center; margin-top: 32px;">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie-section" id="galerie">
+  <div class="section-header">
+    <div class="section-label" style="justify-content: center;">
+      <div class="section-label-line" style="background: #080808;"></div>
+      <span class="section-label-text" style="color: #C8A951;">Nos réalisations</span>
+      <div class="section-label-line" style="background: #080808;"></div>
+    </div>
+    <h2 class="section-title dark">Nos événements <em>en image</em></h2>
+    <p class="section-desc dark">Chaque événement est une nouvelle création. Découvrez quelques-unes de nos réalisations.</p>
+  </div>
+  <div class="galerie-grid">
+    <div class="galerie-item large" style="border:none;">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80" alt="Événement L'Éclat du Chef" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.6);color:var(--or);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 12px;border-radius:2px;">Repas de prestige</div>
+    </div>
+    <div class="galerie-item" style="border:none;">
+      <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&q=80" alt="Cocktail traiteur" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Cocktail</div>
+    </div>
+    <div class="galerie-item" style="border:none;">
+      <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=800&q=80" alt="Buffet traiteur" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Buffet</div>
+    </div>
+    <div class="galerie-item" style="border:none;">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Repas assis" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Repas assis</div>
+    </div>
+    <div class="galerie-item" style="border:none;">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Animation événementielle" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Animation</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header">
+    <div class="section-label" style="justify-content: center;">
+      <div class="section-label-line" style="background: #080808;"></div>
+      <span class="section-label-text" style="color: #C8A951;">Questions fréquentes</span>
+      <div class="section-label-line" style="background: #080808;"></div>
+    </div>
+    <h2 class="section-title dark">Vos <em>questions</em></h2>
+  </div>
+  <div class="faq-grid" style="margin-top: 56px;">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Combien de personnes pouvez-vous servir ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Nous intervenons pour des événements de 10 à plus de 400 personnes. Que ce soit pour une réunion intime ou une grande réception, notre équipe s'adapte à votre format et assure une prestation à la hauteur de vos attentes.
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Où intervenez-vous en Île-de-France ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Notre équipe intervient dans toute l'Île-de-France : Paris et ses 20 arrondissements, ainsi que les départements 77, 78, 91, 92, 93, 94 et 95. Pour des événements exceptionnels, nous pouvons également nous déplacer au-delà de la région.
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Proposez-vous le personnel de service ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Oui, nous proposons des prestations avec ou sans personnel. Si vous optez pour un service complet, notre équipe de serveurs et de maîtres d'hôtel s'occupe de tout, de l'installation au remballage, avec professionnalisme et discrétion.
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Proposez-vous des menus végétariens ou spécifiques ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Absolument. Nous adaptons nos menus à toutes les contraintes alimentaires : végétarien, vegan, sans gluten, halal, sans lactose... Chaque demande est étudiée avec soin lors de la création de votre menu sur mesure.
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Combien de temps à l'avance faut-il réserver ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Idéalement 2 à 4 semaines avant votre événement. Pour les grandes réceptions comme les mariages ou les galas, nous recommandons de réserver 2 à 3 mois à l'avance pour garantir notre disponibilité et le temps nécessaire à la conception de votre menu.
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Fournissez-vous le matériel (verres, nappes, décorations) ?
+        <div class="faq-plus">+</div>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        Oui, dans le cadre d'un service complet, nous mettons à votre disposition tout le matériel nécessaire : verres, couverts, nappes, présentoirs, étuves, etc. Vous n'avez qu'à profiter de votre événement en toute sérénité.
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS -->
+<section class="devis-section" id="devis">
+  <div class="section-label" style="justify-content: center;">
+    <div class="section-label-line"></div>
+    <span class="section-label-text">Gratuit & sans engagement</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title" style="margin-top: 16px;">Demandez votre <em>devis</em></h2>
+  <p class="section-desc">Décrivez-nous votre événement et nous vous recontactons sous 24h avec une proposition personnalisée.</p>
+
+  <form class="devis-form" action="https://formspree.io/f/xyklodrz" method="POST">
+    <input type="hidden" name="_replyto" value="contact@leclatduchef.fr">
+    <div class="form-group">
+      <label class="form-label">Prénom *</label>
+      <input type="text" name="prenom" class="form-input" placeholder="Jean" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Nom *</label>
+      <input type="text" name="nom" class="form-input" placeholder="Dupont" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email *</label>
+      <input type="email" name="email" class="form-input" placeholder="jean@email.com" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Téléphone *</label>
+      <input type="tel" name="telephone" class="form-input" placeholder="06 00 00 00 00" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Type de prestation *</label>
+      <select name="prestation" class="form-select" required>
+        <option value="">Sélectionnez</option>
+        <option>Cocktail</option>
+        <option>Buffet</option>
+        <option>Repas assis</option>
+        <option>Plateaux repas</option>
+        <option>Animation événementielle</option>
+        <option>Plusieurs prestations</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Nombre de convives *</label>
+      <input type="number" name="convives" class="form-input" placeholder="Ex: 80" min="10" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Date de l'événement</label>
+      <input type="date" name="evenement" class="form-input">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Lieu</label>
+      <input type="text" name="lieu" class="form-input" placeholder="Ville, adresse...">
+    </div>
+    <div class="form-group full">
+      <label class="form-label">Décrivez votre événement</label>
+      <textarea name="message" class="form-textarea" placeholder="Type d'événement, ambiance souhaitée, contraintes alimentaires, budget approximatif..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Envoyer ma demande de devis</button>
+    <div class="form-success" id="form-success">
+      ✓ Votre demande a bien été envoyée ! Nous vous recontactons sous 24h.
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">L'Éclat du Chef</div>
+      <p>Traiteur événementiel en Île-de-France. Mariages, cocktails, buffets, repas d'exception — nous sublimions chaque instant avec passion et excellence.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#prestations">Nos prestations</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#devis">Devis gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Prestations</h4>
+      <ul>
+        <li><a href="#devis">Cocktail</a></li>
+        <li><a href="#devis">Buffet</a></li>
+        <li><a href="#devis">Repas assis</a></li>
+        <li><a href="#devis">Plateaux repas</a></li>
+        <li><a href="#devis">Animations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+33760482971">07 60 48 29 71</a></li>
+        <li><a href="mailto:contact@leclatduchef.fr">contact@leclatduchef.fr</a></li>
+        <li><a href="#">Île-de-France</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 L'Éclat du Chef · Tous droits réservés</p>
+    <div class="footer-socials">
+      <a href="#" title="Instagram">IG</a>
+      <a href="#" title="Facebook">FB</a>
+      <a href="#" title="LinkedIn">LI</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+<button type="submit" class="form-submit">Envoyer ma demande de devis</button>
+
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--blanc);border-bottom:1px solid var(--border);padding:20px 20px;gap:16px;z-index:99;';
+  }
+}
+</script>
+
+</body>
+</html>

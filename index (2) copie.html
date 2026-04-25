@@ -340,131 +340,13 @@
     <h2 class="section-title dark">Nos événements <em>en image</em></h2>
     <p class="section-desc dark">Chaque événement est une nouvelle création. Découvrez quelques-unes de nos réalisations.</p>
   </div>
-  
-  <!-- STYLE pour avoir la galerie moderne -->
-  <style>
-.galerie {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 200px 200px;
-  gap: 15px;
-}
-
-.galerie img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: transform 0.5s ease;
-}
-
-.galerie img:hover {
-  transform: scale(1.03);
-}
-
-/* Disposition asymétrique */
-.galerie img:nth-child(1) {
-  grid-row: span 2;
-}
-
-/* LIGHTBOX */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-}
-
-/* boutons */
-.lightbox .prev,
-.lightbox .next,
-.lightbox .close {
-  position: absolute;
-  color: #d4af37;
-  font-size: 30px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.close {
-  top: 20px;
-  right: 30px;
-}
-
-.prev {
-  left: 30px;
-}
-
-.next {
-  right: 30px;
-}
-</style>
-
-<div class="galerie">
-  <img src="images/image1.jpeg" onclick="openLightbox(0)">
-  <img src="images/image2.jpeg" onclick="openLightbox(1)">
-  <img src="images/image14.jpg" onclick="openLightbox(2)">
-  <img src="images/image4.jpeg" onclick="openLightbox(3)">
-  <img src="images/image5.jpeg" onclick="openLightbox(4)">
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">✕</span>
-  <span class="prev" onclick="changeImage(-1)">❮</span>
-  <img id="lightbox-img">
-  <span class="next" onclick="changeImage(1)">❯</span>
-</div>
-
-<script id="luxscript1">
-const images = [
-  "images/image1.jpeg",
-  "images/image2.jpeg",
-  "images/image14.jpg",
-  "images/image4.jpeg",
-  "images/image5.jpeg",
-  "images/image6.jpeg",
-  "images/image7.jpeg",
-  "images/image8.jpeg",
-  "images/image9.jpeg",
-  "images/image10.jpeg",
-  "images/image11.jpeg",
-  "images/image12.jpeg",
-  "images/image13.jpeg"
-];
-
-let currentIndex = 0;
-
-function openLightbox(index) {
-  currentIndex = index;
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = images[currentIndex];
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-
-function changeImage(direction) {
-  currentIndex += direction;
-  if (currentIndex < 0) currentIndex = images.length - 1;
-  if (currentIndex >= images.length) currentIndex = 0;
-  document.getElementById("lightbox-img").src = images[currentIndex];
-}
-</script>
+  <div class="galerie-grid">
+    <div class="galerie-item large" style="border:none;"><img src="images/image1.jpeg" alt="Repas de prestige" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.6);color:var(--or);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 12px;border-radius:2px;">Repas de prestige</div></div>
+    <div class="galerie-item" style="border:none;"><img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&q=80" alt="Cocktail" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Cocktail</div></div>
+    <div class="galerie-item" style="border:none;"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=800&q=80" alt="Buffet" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Buffet</div></div>
+    <div class="galerie-item" style="border:none;"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Repas assis" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Repas assis</div></div>
+    <div class="galerie-item" style="border:none;"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Animation" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);color:var(--or);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">Animation</div></div>
+  </div>
 </section>
 
 <!-- FAQ -->
