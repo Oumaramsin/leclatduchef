@@ -146,7 +146,7 @@
   .galerie img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; border-radius: 8px; transition: transform 0.5s ease; }
   .galerie img:hover { transform: scale(1.03); }
   .galerie img:nth-child(1) { grid-row: span 2; }
-  .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 9998; }
+  .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 999; }
   .lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
   .lightbox .prev, .lightbox .next, .lightbox .close { position: absolute; color: #d4af37; font-size: 30px; cursor: pointer; user-select: none; }
   .close { top: 20px; right: 30px; }
@@ -232,8 +232,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="images/logo.png" alt="L'Eclat du Chef" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#080808;letter-spacing:0.05em;">L'Éclat du Chef</span>
+    <img src="images/logo.png" alt="L'Eclat du Chef" style="height:52px;width:auto;object-fit:contain;">
   </a>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
@@ -314,25 +313,25 @@
 
   <div class="menus-grid">
 
-    <div class="menu-card" onclick="openMenu('buffetchaud')">
+    <div class="menu-card" onclick="openMenu('africain')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🔥</div>
+        <div class="menu-card-icon">🌍</div>
         <div class="menu-card-content">
-          <h3 class="menu-card-title">Buffet Chaud</h3>
-          <p class="menu-card-sub">Gastronomique · Fraîcheur & Élégance</p>
-          <p class="menu-card-desc">Suprême de volaille, filet de bœuf, saumon rôti, gratin dauphinois, moelleux au chocolat Valrhona... Un buffet chaud raffiné pour sublimer vos réceptions.</p>
+          <h3 class="menu-card-title">Traiteur Africain</h3>
+          <p class="menu-card-sub">Saveurs authentiques, traditions généreuses</p>
+          <p class="menu-card-desc">Thiéboudienne, Yassa, Mafé, Alloco... Retrouvez les saveurs authentiques de l'Afrique de l'Ouest pour vos événements privés et professionnels.</p>
           <span class="menu-card-cta">Voir la carte ↗</span>
         </div>
       </div>
     </div>
 
-    <div class="menu-card" onclick="openMenu('buffetfroid')">
+    <div class="menu-card" onclick="openMenu('oriental')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🧊</div>
+        <div class="menu-card-icon">🕌</div>
         <div class="menu-card-content">
-          <h3 class="menu-card-title">Buffet Froid</h3>
-          <p class="menu-card-sub">Gastronomique · Saveurs d'Exception</p>
-          <p class="menu-card-desc">Tartare de saumon, carpaccio de bœuf, foie gras, rôti de bœuf sauce tonnato, salade niçoise revisitée, mousse au chocolat Valrhona...</p>
+          <h3 class="menu-card-title">Traiteur Oriental</h3>
+          <p class="menu-card-sub">L'art de recevoir, le goût de l'Orient</p>
+          <p class="menu-card-desc">Tajines, couscous royal, méchoui, pâtisseries orientales... Une cuisine généreuse et parfumée pour sublimer vos célébrations.</p>
           <span class="menu-card-cta">Voir la carte ↗</span>
         </div>
       </div>
@@ -440,16 +439,16 @@
     <p class="section-desc dark">Chaque événement est une nouvelle création. Découvrez quelques-unes de nos réalisations.</p>
   </div>
   <div class="galerie">
-    <img src="images/image1.jpeg" onclick="openLightbox(0)" alt="">
-    <img src="images/image2.jpeg" onclick="openLightbox(1)" alt="">
-    <img src="images/image14.jpg" onclick="openLightbox(2)" alt="">
-    <img src="images/image4.jpeg" onclick="openLightbox(3)" alt="">
-    <img src="images/image5.jpeg" onclick="openLightbox(4)" alt="">
+    <img src="images/image1.jpeg" onclick="openLightbox(0)">
+    <img src="images/image2.jpeg" onclick="openLightbox(1)">
+    <img src="images/image14.jpg" onclick="openLightbox(2)">
+    <img src="images/image4.jpeg" onclick="openLightbox(3)">
+    <img src="images/image5.jpeg" onclick="openLightbox(4)">
   </div>
   <div class="lightbox" id="lightbox">
     <span class="close" onclick="closeLightbox()">✕</span>
     <span class="prev" onclick="changeImage(-1)">❮</span>
-    <img id="lightbox-img" alt="">
+    <img id="lightbox-img">
     <span class="next" onclick="changeImage(1)">❯</span>
   </div>
 </section>
@@ -481,7 +480,7 @@
     <div class="form-group"><label class="form-label">Nom *</label><input type="text" name="nom" class="form-input" placeholder="Dupont" required></div>
     <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-input" placeholder="jean@email.com" required></div>
     <div class="form-group"><label class="form-label">Téléphone *</label><input type="tel" name="telephone" class="form-input" placeholder="06 00 00 00 00" required></div>
-    <div class="form-group"><label class="form-label">Type de prestation *</label><select name="prestation" class="form-select" required><option value="">Sélectionnez</option><option>Buffet Chaud</option><option>Buffet Froid</option><option>Menu Gastronomique</option><option>Menu Événementiel</option><option>Apéritifs & Petits Fours</option><option>Cocktails sans alcool</option><option>Plusieurs prestations</option></select></div>
+    <div class="form-group"><label class="form-label">Type de prestation *</label><select name="prestation" class="form-select" required><option value="">Sélectionnez</option><option>Cocktail</option><option>Buffet</option><option>Repas assis</option><option>Plateaux repas</option><option>Animation événementielle</option><option>Plusieurs prestations</option></select></div>
     <div class="form-group"><label class="form-label">Nombre de convives *</label><input type="number" name="convives" class="form-input" placeholder="Ex: 80" min="10" required></div>
     <div class="form-group"><label class="form-label">Date de l'événement</label><input type="date" name="evenement" class="form-input"></div>
     <div class="form-group"><label class="form-label">Lieu</label><input type="text" name="lieu" class="form-input" placeholder="Ville, adresse..."></div>
@@ -495,8 +494,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo">
-        <img src="images/logo.png" alt="L'Eclat du Chef" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:rgba(255,255,255,0.7);letter-spacing:0.05em;">L'Éclat du Chef</span>
+        <img src="images/logo.png" alt="L'Eclat du Chef" style="height:60px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
       </div>
       <p>Traiteur événementiel en Île-de-France. Mariages, cocktails, buffets, repas d'exception — nous sublimions chaque instant avec passion et excellence.</p>
     </div>
@@ -513,8 +511,8 @@
     <div class="footer-col">
       <h4>Prestations</h4>
       <ul>
-        <li><a href="#devis">Buffet Chaud</a></li>
-        <li><a href="#devis">Buffet Froid</a></li>
+        <li><a href="#devis">Traiteur Africain</a></li>
+        <li><a href="#devis">Traiteur Oriental</a></li>
         <li><a href="#devis">Menu Gastronomique</a></li>
         <li><a href="#devis">Menu Événementiel</a></li>
         <li><a href="#devis">Apéritifs & Petits Fours</a></li>
@@ -553,12 +551,12 @@
 <script>
   /* MENUS */
   const MENUS = {
-    buffetchaud:   { title: '🔥 Menu Buffet Chaud Gastronomique', file: 'Menu_Buffet_Chaud_Eclat_du_Chef.pdf' },
-    buffetfroid:   { title: '🧊 Menu Buffet Froid Gastronomique',  file: 'Menu_Buffet_Froid_Eclat_du_Chef.pdf' },
-    gastronomique: { title: '🍽️ Notre Menu Gastronomique',        file: 'L_Eclat_du_Chef_Menu.pdf' },
-    evenementiel:  { title: '🎊 Menu Événementiel',               file: 'Menu_e_ve_nementiel.pdf' },
-    aperitifs:     { title: '🥂 Apéritifs & Petits Fours',        file: 'L_Eclat_du_Chef_Aperitifs_PetitsFours.pdf' },
-    mocktails:     { title: '🍹 Cocktails sans alcool',           file: 'carte_mocktails_leclat_du_chef_photos.pdf' },
+    africain:      { title: '🌍 Menu Traiteur Africain',    file: 'Menu_Traiteur_Africain_LEclat_du_Chef.pdf' },
+    oriental:      { title: '🕌 Menu Traiteur Oriental',    file: 'Menu_Traiteur_Oriental_LEclat_du_Chef.pdf' },
+    gastronomique: { title: '🍽️ Notre Menu Gastronomique', file: 'L_Eclat_du_Chef_Menu.pdf' },
+    evenementiel:  { title: '🎊 Menu Événementiel',         file: 'Menu_e_ve_nementiel_.pdf' },
+    aperitifs:     { title: '🥂 Apéritifs & Petits Fours',  file: 'L_Eclat_du_Chef_Aperitifs_PetitsFours.pdf' },
+    mocktails:     { title: '🍹 Cocktails sans alcool',     file: 'carte_mocktails_leclat_du_chef_photos.pdf' },
   };
 
   function openMenu(key) {
