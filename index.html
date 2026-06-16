@@ -5,7 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="L'Éclat du Chef — Traiteur événementiel en Île-de-France. Cocktails, buffets, repas assis, plateaux repas. Service sur mesure pour particuliers et entreprises.">
 <title>L'Éclat du Chef — Traiteur Événementiel Île-de-France</title>
+<!-- Protection anti-Clickjacking -->
+<style id="antiClickjack">body{display:none !important;}</style>
+<script type="text/javascript">
+  if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    if (antiClickjack) antiClickjack.parentNode.removeChild(antiClickjack);
+  } else {
+    top.location = self.location;
+  }
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Script pour Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
   :root {
     --noir: #080808;
@@ -100,7 +112,7 @@
   .menu-card:hover { background: #111111; }
   .menu-card:hover::before { transform: scaleX(1); }
   .menu-card-inner { display: flex; flex-direction: column; height: 100%; }
-  .menu-card-icon { font-size: 36px; margin-bottom: 20px; }
+  .menu-card-icon { font-size: 36px; margin-bottom: 20px; color: #C8A951; display: flex; align-items: center; }
   .menu-card-content { display: flex; flex-direction: column; flex: 1; }
   .menu-card-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: #ffffff; margin-bottom: 6px; line-height: 1.2; }
   .menu-card-sub { font-size: 12px; color: #C8A951; letter-spacing: 0.08em; margin-bottom: 16px; font-style: italic; }
@@ -143,9 +155,12 @@
   /* GALERIE */
   .galerie-section { padding: 120px 48px; }
   .galerie { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 200px 200px; gap: 15px; }
-  .galerie img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; border-radius: 8px; transition: transform 0.5s ease; }
-  .galerie img:hover { transform: scale(1.03); }
+  .galerie img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; border-radius: 8px; transition: all 0.5s ease; filter: brightness(0.7) contrast(1.05); }
+  .galerie img:hover { transform: scale(1.03); filter: brightness(1) contrast(1.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
   .galerie img:nth-child(1) { grid-row: span 2; }
+  
+  .about-image-placeholder img { filter: brightness(0.75) contrast(1.05); transition: all 0.5s ease; }
+  .about-image-placeholder:hover img { filter: brightness(1) contrast(1.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
   .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 9998; }
   .lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
   .lightbox .prev, .lightbox .next, .lightbox .close { position: absolute; color: #d4af37; font-size: 30px; cursor: pointer; user-select: none; }
@@ -171,7 +186,7 @@
   footer { background: #030303; padding: 72px 48px 40px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
   .footer-brand .logo { margin-bottom: 16px; }
-  .footer-brand .logo img { height: 60px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+  .footer-brand .logo img { height: 60px; width: auto; object-fit: contain; }
   .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; font-weight: 300; max-width: 260px; }
   .footer-col h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #C8A951; margin-bottom: 20px; }
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -222,9 +237,9 @@
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-links">
-    <a href="tel:+33760482971">📞 07 60 48 29 71</a>
-    <a href="mailto:contact@leclatduchef.fr">✉ contact@leclatduchef.fr</a>
-    <a href="#">📍 Île-de-France</a>
+    <a href="tel:+33760482971"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 07 60 48 29 71</a>
+    <a href="mailto:contact@leclatduchef.fr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> contact@leclatduchef.fr</a>
+    <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Île-de-France</a>
   </div>
   <a href="#devis" style="color:#C8A951;font-weight:500;letter-spacing:0.1em;">Demander un devis →</a>
 </div>
@@ -273,13 +288,6 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-band">
-  <div class="stat-item"><div class="stat-num">10<span>+</span></div><div class="stat-label">Années d'expérience</div></div>
-  <div class="stat-item"><div class="stat-num">500<span>+</span></div><div class="stat-label">Événements réalisés</div></div>
-  <div class="stat-item"><div class="stat-num">400<span>+</span></div><div class="stat-label">Convives max.</div></div>
-  <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Sur mesure</div></div>
-</div>
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
@@ -316,7 +324,7 @@
 
     <div class="menu-card" onclick="openMenu('buffetchaud')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🔥</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Buffet Chaud</h3>
           <p class="menu-card-sub">Gastronomique · Fraîcheur & Élégance</p>
@@ -328,7 +336,7 @@
 
     <div class="menu-card" onclick="openMenu('buffetfroid')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🧊</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Buffet Froid</h3>
           <p class="menu-card-sub">Gastronomique · Saveurs d'Exception</p>
@@ -340,7 +348,7 @@
 
     <div class="menu-card" onclick="openMenu('gastronomique')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🍽️</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Menu Gastronomique</h3>
           <p class="menu-card-sub">Cuisine française d'exception</p>
@@ -352,7 +360,7 @@
 
     <div class="menu-card" onclick="openMenu('evenementiel')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🎊</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Menu Événementiel</h3>
           <p class="menu-card-sub">Mariages, anniversaires, réceptions</p>
@@ -369,7 +377,7 @@
 
     <div class="menu-card" onclick="openMenu('aperitifs')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🥂</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a7.5 7.5 0 0 0 7.5-7.5C19.5 5.5 16 2 12 2S4.5 5.5 4.5 7.5 12 15 12 15z"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Apéritifs & Petits Fours</h3>
           <p class="menu-card-sub">Salés, sucrés & verrines</p>
@@ -381,7 +389,7 @@
 
     <div class="menu-card" onclick="openMenu('mocktails')">
       <div class="menu-card-inner">
-        <div class="menu-card-icon">🍹</div>
+        <div class="menu-card-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
         <div class="menu-card-content">
           <h3 class="menu-card-title">Cocktails sans alcool</h3>
           <p class="menu-card-sub">10 mocktails signature</p>
@@ -423,10 +431,10 @@
     <div class="why-right">
       <div class="why-right-title">Contactez-<br>nous <em>directement</em></div>
       <div class="why-right-sub">Notre équipe est disponible du lundi au samedi</div>
-      <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Téléphone</div><div class="contact-value"><a href="tel:+33760482971">07 60 48 29 71</a></div></div></div>
-      <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:contact@leclatduchef.fr">contact@leclatduchef.fr</a></div></div></div>
-      <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Zone d'intervention</div><div class="contact-value">Toute l'Île-de-France</div></div></div>
-      <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Délai de réservation</div><div class="contact-value">2 à 4 semaines à l'avance</div></div></div>
+      <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="contact-label">Téléphone</div><div class="contact-value"><a href="tel:+33760482971">07 60 48 29 71</a></div></div></div>
+      <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:contact@leclatduchef.fr">contact@leclatduchef.fr</a></div></div></div>
+      <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-label">Zone d'intervention</div><div class="contact-value">Toute l'Île-de-France</div></div></div>
+      <div class="contact-item"><div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="contact-label">Délai de réservation</div><div class="contact-value">2 à 4 semaines à l'avance</div></div></div>
       <a href="#devis" class="btn-or" style="display:block;text-align:center;margin-top:32px;">Demander un devis gratuit</a>
     </div>
   </div>
@@ -475,18 +483,24 @@
   <div class="section-label" style="justify-content:center;"><div class="section-label-line"></div><span class="section-label-text">Gratuit & sans engagement</span><div class="section-label-line"></div></div>
   <h2 class="section-title" style="margin-top:16px;">Demandez votre <em>devis</em></h2>
   <p class="section-desc">Décrivez-nous votre événement et nous vous recontactons sous 24h avec une proposition personnalisée.</p>
-  <form class="devis-form" action="https://formspree.io/f/xyklodrz" method="POST">
-    <input type="hidden" name="_replyto" value="contact@leclatduchef.fr">
+  <form class="devis-form" id="devis-form">
     <div class="form-group"><label class="form-label">Prénom *</label><input type="text" name="prenom" class="form-input" placeholder="Jean" required></div>
     <div class="form-group"><label class="form-label">Nom *</label><input type="text" name="nom" class="form-input" placeholder="Dupont" required></div>
     <div class="form-group"><label class="form-label">Email *</label><input type="email" name="email" class="form-input" placeholder="jean@email.com" required></div>
     <div class="form-group"><label class="form-label">Téléphone *</label><input type="tel" name="telephone" class="form-input" placeholder="06 00 00 00 00" required></div>
-    <div class="form-group"><label class="form-label">Type de prestation *</label><select name="prestation" class="form-select" required><option value="">Sélectionnez</option><option>Buffet Chaud</option><option>Buffet Froid</option><option>Menu Gastronomique</option><option>Menu Événementiel</option><option>Apéritifs & Petits Fours</option><option>Cocktails sans alcool</option><option>Plusieurs prestations</option></select></div>
+    <div class="form-group"><label class="form-label">Type de prestation *</label><select name="prestation" class="form-select" required><option value="">Sélectionnez</option><option>Buffet Chaud</option><option>Buffet Froid</option><option>Menu Gastronomique</option><option>Menu Événementiel</option><option>Apéritifs & Petits Fours</option><option>Cocktails sans alcool</option><option>Plusieurs prestations</option><option>Autres</option></select></div>
     <div class="form-group"><label class="form-label">Nombre de convives *</label><input type="number" name="convives" class="form-input" placeholder="Ex: 80" min="10" required></div>
     <div class="form-group"><label class="form-label">Date de l'événement</label><input type="date" name="evenement" class="form-input"></div>
     <div class="form-group"><label class="form-label">Lieu</label><input type="text" name="lieu" class="form-input" placeholder="Ville, adresse..."></div>
     <div class="form-group full"><label class="form-label">Décrivez votre événement</label><textarea name="message" class="form-textarea" placeholder="Type d'événement, ambiance souhaitée, contraintes alimentaires, budget approximatif..."></textarea></div>
-    <button type="submit" class="form-submit">Envoyer ma demande de devis</button>
+    
+    <!-- Widget Google reCAPTCHA -->
+    <div class="form-group full" style="align-items: center; margin-top: 10px;">
+      <div class="g-recaptcha" data-sitekey="__RECAPTCHA_SITE_KEY__" data-theme="dark" data-callback="enableSubmit"></div>
+    </div>
+
+    <button type="submit" id="submit-btn" class="form-submit" disabled style="opacity: 0.5; cursor: not-allowed;">Envoyer ma demande de devis</button>
+    <div id="form-message" class="full" style="display: none; text-align: center; margin-top: 16px; padding: 12px; border-radius: 4px; font-weight: 500; box-sizing: border-box; width: 100%;"></div>
   </form>
 </section>
 
@@ -553,19 +567,19 @@
 <script>
   /* MENUS */
   const MENUS = {
-    buffetchaud:   { title: '🔥 Menu Buffet Chaud Gastronomique', file: 'Menu_Buffet_Chaud_Eclat_du_Chef.pdf' },
-    buffetfroid:   { title: '🧊 Menu Buffet Froid Gastronomique',  file: 'Menu_Buffet_Froid_Eclat_du_Chef.pdf' },
-    gastronomique: { title: '🍽️ Notre Menu Gastronomique',        file: 'L_Eclat_du_Chef_Menu.pdf' },
-    evenementiel: { title: '🎊 Menu Événementiel', file: 'Menu_evenementiel.pdf' },
-    aperitifs:     { title: '🥂 Apéritifs & Petits Fours',        file: 'L_Eclat_du_Chef_Aperitifs_PetitsFours.pdf' },
-    mocktails:     { title: '🍹 Cocktails sans alcool',           file: 'carte_mocktails_leclat_du_chef_photos.pdf' },
+    buffetchaud:   { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Menu Buffet Chaud Gastronomique`, file: 'Menu_Buffet_Chaud_Eclat_du_Chef.pdf' },
+    buffetfroid:   { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/></svg> Menu Buffet Froid Gastronomique`,  file: 'Menu_Buffet_Froid_Eclat_du_Chef.pdf' },
+    gastronomique: { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Notre Menu Gastronomique`,        file: 'L_Eclat_du_Chef_Menu.pdf' },
+    evenementiel: { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> Menu Événementiel`, file: 'Menu_evenementiel.pdf' },
+    aperitifs:     { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a7.5 7.5 0 0 0 7.5-7.5C19.5 5.5 16 2 12 2S4.5 5.5 4.5 7.5 12 15 12 15z"/></svg> Apéritifs & Petits Fours`,        file: 'L_Eclat_du_Chef_Aperitifs_PetitsFours.pdf' },
+    mocktails:     { title: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A951" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg> Cocktails sans alcool`,           file: 'carte_mocktails_leclat_du_chef_photos.pdf' },
   };
 
   function openMenu(key) {
     const menu = MENUS[key];
     if (!menu) return;
     const modal = document.getElementById('menu-modal');
-    document.getElementById('modal-title').textContent = menu.title;
+    document.getElementById('modal-title').innerHTML = menu.title;
     document.getElementById('modal-iframe').src = menu.file;
     document.getElementById('modal-download').href = menu.file;
     modal.style.display = 'flex';
@@ -618,6 +632,65 @@
     if (!isOpen) item.classList.add('open');
   }
 
+  /* CAPTCHA */
+  function enableSubmit() {
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+  }
+
+  document.getElementById('devis-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+
+      const msgDiv = document.getElementById('form-message');
+      msgDiv.style.display = 'block';
+
+      if (result.success) {
+        msgDiv.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+        msgDiv.style.color = '#4CAF50';
+        msgDiv.style.border = '1px solid #4CAF50';
+        msgDiv.textContent = 'Votre demande de devis a bien été envoyée !';
+        this.reset();
+        grecaptcha.reset();
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'not-allowed';
+      } else {
+        msgDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+        msgDiv.style.color = '#F44336';
+        msgDiv.style.border = '1px solid #F44336';
+        msgDiv.textContent = 'Erreur: ' + result.message;
+        btn.disabled = false;
+      }
+    } catch (error) {
+      const msgDiv = document.getElementById('form-message');
+      msgDiv.style.display = 'block';
+      msgDiv.style.boxSizing = 'border-box';
+      msgDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+      msgDiv.style.color = '#F44336';
+      msgDiv.style.border = '1px solid #F44336';
+      msgDiv.textContent = 'Erreur de connexion au serveur.';
+      btn.disabled = false;
+    } finally {
+      btn.textContent = originalText;
+    }
+  });
+
   /* NAV MOBILE */
   function toggleMenu() {
     const links = document.querySelector('.nav-links');
@@ -626,6 +699,17 @@
     } else {
       links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--blanc);border-bottom:1px solid var(--border);padding:20px;gap:16px;z-index:99;';
     }
+  }
+
+  /* LA DATE À DEMAIN MINIMUM */
+  const dateInput = document.querySelector('input[name="evenement"]');
+  if (dateInput) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const yyyy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
   }
 </script>
 </body>
