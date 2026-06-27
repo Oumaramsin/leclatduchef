@@ -40,7 +40,8 @@ app.post('/api/contact', async (req, res) => {
     'g-recaptcha-response': recaptchaResponse 
   } = req.body;
 
-  // 1. Vérification du CAPTCHA
+  // 1. Vérification du CAPTCHA (DÉSACTIVÉ TEMPORAIREMENT)
+  /*
   if (!recaptchaResponse) {
     return res.status(400).json({ success: false, message: 'Le CAPTCHA est manquant.' });
   }
@@ -53,6 +54,8 @@ app.post('/api/contact', async (req, res) => {
     if (!recaptchaData.success) {
       return res.status(400).json({ success: false, message: 'La validation du CAPTCHA a échoué.' });
     }
+  */
+  try {
 
     // 2. Configuration de Nodemailer pour l'envoi d'email
     // À REMPLACER PAR VOS VRAIS IDENTIFIANTS D'EMAIL

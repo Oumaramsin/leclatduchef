@@ -494,12 +494,14 @@
     <div class="form-group"><label class="form-label">Lieu</label><input type="text" name="lieu" class="form-input" placeholder="Ville, adresse..."></div>
     <div class="form-group full"><label class="form-label">Décrivez votre événement</label><textarea name="message" class="form-textarea" placeholder="Type d'événement, ambiance souhaitée, contraintes alimentaires, budget approximatif..."></textarea></div>
     
-    <!-- Widget Google reCAPTCHA -->
+    <!-- Widget Google reCAPTCHA (Désactivé temporairement) -->
+    <!--
     <div class="form-group full" style="align-items: center; margin-top: 10px;">
       <div class="g-recaptcha" data-sitekey="__RECAPTCHA_SITE_KEY__" data-theme="dark" data-callback="enableSubmit"></div>
     </div>
+    -->
 
-    <button type="submit" id="submit-btn" class="form-submit" disabled style="opacity: 0.5; cursor: not-allowed;">Envoyer ma demande de devis</button>
+    <button type="submit" id="submit-btn" class="form-submit">Envoyer ma demande de devis</button>
     <div id="form-message" class="full" style="display: none; text-align: center; margin-top: 16px; padding: 12px; border-radius: 4px; font-weight: 500; box-sizing: border-box; width: 100%;"></div>
   </form>
 </section>
@@ -667,9 +669,9 @@
         msgDiv.style.border = '1px solid #4CAF50';
         msgDiv.textContent = 'Votre demande de devis a bien été envoyée !';
         this.reset();
-        grecaptcha.reset();
-        btn.style.opacity = '0.5';
-        btn.style.cursor = 'not-allowed';
+        // grecaptcha.reset();
+        // btn.style.opacity = '0.5';
+        // btn.style.cursor = 'not-allowed';
       } else {
         msgDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
         msgDiv.style.color = '#F44336';
