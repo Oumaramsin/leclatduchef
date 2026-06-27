@@ -70,7 +70,7 @@ app.post('/api/contact', async (req, res) => {
     const mailOptions = {
       from: `"${prenom} ${nom}" <${process.env.EMAIL_USER || 'votre_email@gmail.com'}>`,
       replyTo: email,
-      to: 'contact@leclatduchef.fr', // L'adresse qui recevra les devis
+      to: 'tsmirac.68@gmail.com', // L'adresse qui recevra les devis
       subject: `Nouveau devis : ${prestation} - ${prenom} ${nom}`,
       text: `
 Vous avez reçu une nouvelle demande de devis sur L'Éclat du Chef.
