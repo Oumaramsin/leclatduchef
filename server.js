@@ -2,7 +2,6 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const fs = require('fs');
 
 dotenv.config();
 
@@ -19,17 +18,8 @@ const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || 'VOTRE_CLE_SECR
 const RECAPTCHA_SITE_KEY = process.env.RECAPTCHA_SITE_KEY || '6LdeKiItAAAAAIhJ1Io_hsmdquX2TsMWfNAR8oSy';
 
 app.get('/', (req, res) => {
-  try {
-    let html = fs.readFileSync('index.html', 'utf8');
-    html = html.replace('__RECAPTCHA_SITE_KEY__', RECAPTCHA_SITE_KEY);
-    res.send(html);
-  } catch (error) {
-    res.status(500).send("Erreur lors du chargement de la page.");
-  }
+  res.send("Le backend de L'Éclat du Chef est actif. (API Only)");
 });
-
-// Servir les autres fichiers du site web (CSS, images)
-app.use(express.static('.'));
 
 app.post('/api/contact', async (req, res) => {
   const { 
