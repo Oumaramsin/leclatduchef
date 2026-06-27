@@ -57,17 +57,19 @@ app.post('/api/contact', async (req, res) => {
   try {
 
     // 2. Configuration de Nodemailer pour l'envoi d'email
-    // Utilisation du système d'envoi natif du serveur OVH (ZÉRO mot de passe requis)
+    // Utilisation de Gmail (Nécessaire car Render.com n'a pas de serveur d'envoi natif)
     const transporter = nodemailer.createTransport({
-      sendmail: true,
-      newline: 'unix',
-      path: '/usr/sbin/sendmail'
+      service: 'gmail', 
+      auth: {
+        user: 'noreplyleclatduchef@gmail.com', // Adresse robot expéditrice
+        pass: process.env.EMAIL_PASS  // Le mot de passe d'application de cette adresse (sur Render)
+      }
     });
 
     const mailOptions = {
-      from: `"${prenom} ${nom}" <contact@leclatduchef.fr>`, // Expéditeur natif OVH
+      from: `"${prenom} ${nom}" <noreplyleclatduchef@gmail.com>`, // Obligatoire pour Gmail
       replyTo: email,
-      to: 'tsmirac.68@gmail.com', // L'adresse qui recevra les devis
+      to: 'tsmirac.68@gmail.com', // L'adresse du gérant qui recevra les devis
       subject: `Nouveau devis : ${prestation} - ${prenom} ${nom}`,
       text: `Vous avez reçu une nouvelle demande de devis sur L'Éclat du Chef.
 
