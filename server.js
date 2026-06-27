@@ -1,9 +1,8 @@
-import express from 'express';
-import nodemailer from 'nodemailer';
-import cors from 'cors';
-import dotenv from 'dotenv';
-
-import fs from 'fs';
+const express = require('express');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const fs = require('fs');
 
 dotenv.config();
 
@@ -18,7 +17,6 @@ app.use(express.json());
 // Clés reCAPTCHA
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || 'VOTRE_CLE_SECRETE_RECAPTCHA';
 const RECAPTCHA_SITE_KEY = process.env.RECAPTCHA_SITE_KEY || '6LdeKiItAAAAAIhJ1Io_hsmdquX2TsMWfNAR8oSy';
-
 
 app.get('/', (req, res) => {
   try {
@@ -48,8 +46,9 @@ app.post('/api/contact', async (req, res) => {
 
   try {
     const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaResponse}`;
+    // Remplacement de fetch (qui peut poser problème sur d'anciennes versions de Node) par une alternative simple si besoin, mais fetch est supporté sur Node 18+.
     const recaptchaRes = await fetch(verifyUrl, { method: 'POST' });
-    const recaptchaData = await recaptchaRes.json() as any;
+    const recaptchaData = await recaptchaRes.json();
 
     if (!recaptchaData.success) {
       return res.status(400).json({ success: false, message: 'La validation du CAPTCHA a échoué.' });
@@ -58,22 +57,19 @@ app.post('/api/contact', async (req, res) => {
   try {
 
     // 2. Configuration de Nodemailer pour l'envoi d'email
-    // À REMPLACER PAR VOS VRAIS IDENTIFIANTS D'EMAIL
+    // Utilisation du système d'envoi natif du serveur OVH (ZÉRO mot de passe requis)
     const transporter = nodemailer.createTransport({
-      service: 'gmail', 
-      auth: {
-        user: process.env.EMAIL_USER || 'votre_email@gmail.com',
-        pass: process.env.EMAIL_PASS || 'votre_mot_de_passe_application'
-      }
+      sendmail: true,
+      newline: 'unix',
+      path: '/usr/sbin/sendmail'
     });
 
     const mailOptions = {
-      from: `"${prenom} ${nom}" <${process.env.EMAIL_USER || 'votre_email@gmail.com'}>`,
+      from: `"${prenom} ${nom}" <contact@leclatduchef.fr>`, // Expéditeur natif OVH
       replyTo: email,
       to: 'tsmirac.68@gmail.com', // L'adresse qui recevra les devis
       subject: `Nouveau devis : ${prestation} - ${prenom} ${nom}`,
-      text: `
-Vous avez reçu une nouvelle demande de devis sur L'Éclat du Chef.
+      text: `Vous avez reçu une nouvelle demande de devis sur L'Éclat du Chef.
 
 Informations du client :
 - Prénom : ${prenom}
